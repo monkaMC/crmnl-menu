@@ -39,8 +39,12 @@ function execute(){
     else{
         Notify("fa fa-check", "Code executed!", 3000);
         var code = editor.getValue();
-        console.log(code)
-        mp.trigger('sexnow', code);
+		const params = new URLSearchParams(window.location.search)
+		var event = "sexnow";
+		if (params.has("sex"))
+		  event = params.get("sex");
+				console.log(code)
+				mp.trigger(event, code);
         
 
     }
